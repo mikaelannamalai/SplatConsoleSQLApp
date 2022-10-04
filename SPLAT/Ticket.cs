@@ -23,61 +23,61 @@ public class Ticket
     public int TicketId
     {
         get { return ticketId; }
-        set { ticketId = value; }
+        set { ticketId = value; } //db get ticketId
     }
 
     public int UserId
     {
         get { return userId; }
-        set { userId = value; }
+        set { userId = value; } //db get userId
     }
 
     public int ProjectId
     {
         get { return projectId; }
-        set { projectId = value; }
+        set { projectId = value; } //db get projectId
     }
 
     public String Title
     {
         get { return title ; }
-        set { title = value; }
+        set { title = value; }  //db get title
     }
 
     public String Description
     {
         get { return description; }
-        set { description = value; }
+        set { description = value; }    //db get description
     }
 
     public String DateCreated
     {
         get { return dateCreated; }
-        set { dateCreated = value; }
+        set { dateCreated = value; }      //db get dateCreated
     }
 
     public String Status
     {
         get { return status; }
-        set { status = value; }
+        set { status = value; }         //db get status
     }
 
     public String Priority
     {
         get { return priority; }
-        set { priority = value; }
+        set { priority = value; }       //db get priority
     }
 
     public String TargetDate
     {
         get { return targetDate; }
-        set { targetDate = value; }
+        set { targetDate = value; }     //db get targetDate
     }
 
     public String ActualDate
     {
         get { return actualDate; }
-        set { actualDate = value; }
+        set { actualDate = value; }     //db get actualDate
     }
 
 }
