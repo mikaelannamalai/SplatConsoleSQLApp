@@ -6,4 +6,3 @@ public class Class1
 	{
 	}
 }
-Date
