@@ -34,76 +34,92 @@ public class TicketController
         this.selectedTicketID = ID;
     }
 
-   /* public ArrayList <int> getProductIDs() ////TODO
+    /* public ArrayList <int> getProductIDs() ////TODO
+     {
+         ResultSet rs = DB.getInstance().getAll(DB.TICKETS_TABLE);
+
+
+     }
+    */
+    public void addTicket(int userID, int projectID, String title, String description, String date, String status, String priority, String target_date )
     {
-        ResultSet rs = DB.getInstance().getAll(DB.TICKETS_TABLE);
-
-
+        // Insert into ticket table
+        DB.getInstance().insert(
+            DB.TICKETS_TABLE,
+            new String[] { "IDENTIFIED_BY", "RELATED_PROJECT", "TITLE", "DESCRIPTION", "DATE_CREATED", "STATUS", "PRIORITY", "TARGET_END_DATE" },
+            new String[] { userID+"", projectID + "", title, description, date, status, priority, target_date }
+        );
     }
-   */
 
 
-    public int GetTicketID()
+    public int getTicketID()
     {
          return selectedTicketID; 
  
     }
 
-    public string UserId
+    public string userId
     {
         get { 
-            enforceTicketSelected( "getUserId()" );
-            return db.get(DB.TICKETS_TABLE, GetTicketID(), "USERID");   
+            enforceTicketSelected( "getTicketId()" );
+            return db.get(DB.TICKETS_TABLE, getTicketID(), "USERID");   
         
         }
         set {
-            DB.getInstance().update(DB.TICKETS_TABLE, GetTicketID(), "USERID", value);
+            DB.getInstance().update(DB.TICKETS_TABLE, getTicketID(), "USERID", value);
         } //db get userId
     }
 
-    public int ProjectId
+    public string projectId
     {
-        get { return projectId; }
-        set { projectId = value; } //db get projectId
+        get {
+            enforceTicketSelected("getUserId()");
+            return db.get(DB.TICKETS_TABLE, getTicketID(), "PROJECTID");
+
+        }
+        set { 
+            DB.getInstance().update(DB.TICKETS_TABLE, getTicketID(), "USERID", value);
+
+        } //db get projectId
     }
 
-    public String Title
+    public String title
     {
         get { return title ; }
         set { title = value; }  //db get title
     }
 
-    public String Description
+    public String description
     {
         get { return description; }
         set { description = value; }    //db get description
     }
 
-    public String DateCreated
+    public String dateCreated
     {
         get { return dateCreated; }
         set { dateCreated = value; }      //db get dateCreated
     }
 
-    public String Status
+    public String status
     {
         get { return status; }
         set { status = value; }         //db get status
     }
 
-    public String Priority
+    public String priority
     {
         get { return priority; }
         set { priority = value; }       //db get priority
     }
 
-    public String TargetDate
+    public String targetDate
     {
         get { return targetDate; }
         set { targetDate = value; }     //db get targetDate
     }
 
-    public String ActualDate
+    public String actualDate
     {
         get { return actualDate; }
         set { actualDate = value; }     //db get actualDate
